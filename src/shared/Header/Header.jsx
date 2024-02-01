@@ -7,8 +7,6 @@ import logo from '../../assets/logo.svg';
 
 
 const Header = () => {
-
-
     return (
         <nav className="navbar bg-base-100 my-3">
   <div className="navbar-start">
@@ -35,7 +33,9 @@ const Header = () => {
   <FaBagShopping />
   <FaSearch />
   </div>
-  <button className="btn btn-sm btn-outline ms-4 btn-error">Appointment</button>
+ <Link to='/login'>
+ <button className="btn btn-sm btn-outline ms-4 btn-error">Appointment</button>
+ </Link>
   </div>
 </nav>
     );
