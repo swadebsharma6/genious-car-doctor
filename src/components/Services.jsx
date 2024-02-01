@@ -18,13 +18,13 @@ const Services = () => {
            <div className="max-w-2xl mx-auto text-center p-4 my-10">
             <h4 className="text-xl font-bold text-orange-500">Services</h4>
             <h2 className="text-4xl font-bold">Our Service Area</h2>
-            <p>The majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable. </p>
+            <p className="text-lg font-medium">The majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable. </p>
            </div>
 
            <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
            {
             services.map(service => <ServiceCard
-                key={service._id}
+                key={service.service_id}
                 service={service}
                 ></ServiceCard>)
            }
