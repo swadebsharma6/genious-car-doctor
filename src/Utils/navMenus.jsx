@@ -26,11 +26,11 @@ import { NavLink } from "react-router-dom"
 </NavLink>
   </li>
   <li>
-  <NavLink to="/blogs"
+  <NavLink to="/orders"
   className={({ isActive,}) =>
      isActive ? "font-semibold text-orange-500" : ""
   }>
- Blogs
+ Orders
 </NavLink>
   </li>
   <li>
