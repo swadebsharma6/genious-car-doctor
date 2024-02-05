@@ -5,6 +5,8 @@ import Services from "../../components/Services";
 import Team from "../../components/Team";
 import Footer from "../../shared/Footer/Footer";
 import About from "../About";
+import Features from "./Home/Features";
+import Testimonial from "./Home/Testimonial";
 
 
 const Home = () => {
@@ -16,6 +18,8 @@ const Home = () => {
            <Contact/>
            <Popular/>
            <Team/>
+           <Features/>
+           <Testimonial/>
            <Footer/>
         </div>
     );
