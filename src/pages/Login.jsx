@@ -7,6 +7,7 @@ import { AuthContext } from '../context/AuthProvider';
 const Login = () => {
   const {signUser} = useContext(AuthContext);
 
+
     const handleSubmit = event =>{
         event.preventDefault();
         const form = event.target;
@@ -18,6 +19,7 @@ const Login = () => {
           console.log('log', user);
           swal("Good job!", "User Login Successfully", "success");
           form.reset();
+          
         })
         .catch(error =>{
           console.log(error.message)

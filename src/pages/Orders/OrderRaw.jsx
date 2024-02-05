@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const OrderRaw = ({order,}) => {
     // console.log(order)
-    const{ _id,serviceName, serviceId, customer, price, email, phone} = order;
+    const{ _id,serviceName, serviceId, customer, price, email, phone, status} = order;
     const [orderService, setOrderService] = useState({});
 
     useEffect(()=>{
@@ -22,7 +22,9 @@ const OrderRaw = ({order,}) => {
             .then(res => res.json())
             .then(data =>{
                 if(data.deletedCount > 0){
-                    alert('Your Order Cancel Successfully')
+                    alert('Your Order Cancel Successfully');
+                    const remaining = orderService.filter(odr => odr._id !== Id);
+                    setOrderService(remaining)
                 }
             })
             .catch(error =>{
@@ -59,7 +61,7 @@ const OrderRaw = ({order,}) => {
               <td>{phone}</td>
               <td className="text-lg font-bold text-red-500">${price}</td>
               <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <button className="btn btn-primary btn-xs">{status ? status : 'Pending'}</button>
               </th>
             </tr>
     );
