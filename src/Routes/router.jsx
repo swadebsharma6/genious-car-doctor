@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Orders from "../pages/Orders/Orders";
 import Services from "../pages/Services";
 import SignUp from "../pages/SignUp";
+import PrivetRoute from "./PrivetRoute";
 
 export const router = createBrowserRouter([
     {
@@ -46,12 +47,12 @@ export const router = createBrowserRouter([
         },
         {
           path: '/checkout/:id',
-          element: <CheckOut/>,
+          element: <PrivetRoute><CheckOut/></PrivetRoute>,
           loader:({params}) => fetch(`http://localhost:5000/services/${params.id}`)
         },
         {
           path: '/orders',
-          element: <Orders/>
+          element: <PrivetRoute><Orders/></PrivetRoute>
         }
         
       ]

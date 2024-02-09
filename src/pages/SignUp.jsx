@@ -1,3 +1,4 @@
+import { updateProfile } from 'firebase/auth';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -11,14 +12,24 @@ const SignUp = () => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
+        const name = form.name.value;
         const password = form.password.value;
         // create user
         createUser(email, password)
         .then(result =>{
           const user = result.user;
-          console.log('created', user)
+          updateProfile(user,{
+            displayName: name,
+          })
+          .then(()=>{
+            console.log('created', user)
           swal("Good job!", "User created Successfully", "success");
           form.reset();
+          })
+          .catch(error =>{
+            console.log(error.message)
+          })
+          
         })
         .catch(error =>{
           console.log(error.message)

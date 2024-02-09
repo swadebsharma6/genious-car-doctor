@@ -1,12 +1,27 @@
+import { useContext } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaBagShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { navMenus } from "../../Utils/navMenus";
 import logo from '../../assets/logo.svg';
+import { AuthContext } from "../../context/AuthProvider";
 
 
 
 const Header = () => {
+
+  const {user,  logOut} = useContext(AuthContext);
+
+  const handleLogOut =()=>{
+    logOut()
+    .then(()=>{
+      alert('user Logout Successfully')
+    })
+    .catch(error =>{
+      console.log(error.message)
+    })
+  }
+
     return (
         <nav className="navbar bg-base-100 my-3">
   <div className="navbar-start">
@@ -33,9 +48,10 @@ const Header = () => {
   <FaBagShopping />
   <FaSearch />
   </div>
- <Link to='/login'>
- <button className="btn btn-sm btn-outline ms-4 btn-error">Appointment</button>
- </Link>
+  {user &&  <p className="font-bold text-primary">{user.displayName}</p> }
+{  user ?  <button onClick={handleLogOut} className="btn btn-sm btn-outline ms-4 btn-error">LogOut</button> :  <Link to='/login'>
+<button className="btn btn-sm btn-outline ms-4 btn-error">Appointment</button>
+ </Link>}
   </div>
 </nav>
     );
