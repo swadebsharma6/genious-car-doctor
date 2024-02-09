@@ -20,7 +20,7 @@ const Popular = () => {
             <p className="text-lg font-medium">The majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable. </p>
             </div>
 
-            <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
             {
              products.map(product => <ProductCard
                 key={product._id}

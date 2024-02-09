@@ -28,7 +28,8 @@ export const router = createBrowserRouter([
         },
         {
           path: '/services',
-          element: <Services/>
+          element: <Services/>,
+          loader: () => fetch('https://genius-car-server-sooty.vercel.app/services')
         },
         {
           path: '/blogs',

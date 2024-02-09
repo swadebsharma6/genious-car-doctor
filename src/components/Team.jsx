@@ -18,7 +18,7 @@ const Team = () => {
         <p className="text-lg font-medium">the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable.  </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
             {
                 team.map(tem => <TeamCard
                     key={tem._id}
