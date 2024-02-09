@@ -4,17 +4,28 @@ import OrderRaw from "./OrderRaw";
 
 
 const Orders = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
     const [orders, setOrders] = useState([]);
     // console.log(orders)
 
-    const url =`http://localhost:5000/orders?email=${user?.email}`;
+  
 
     useEffect(()=>{
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setOrders(data))
-    }, [url]);
+        fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+          headers:{
+            authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        })
+        .then(res =>{
+          if(res.status === 401 || res.status === 403){
+           return  logOut();
+          }
+          return  res.json();
+        })
+        .then(data =>{
+          setOrders(data)
+        })
+    }, [user?.email, logOut]);
 
 
     return (
