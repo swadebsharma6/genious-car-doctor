@@ -5,7 +5,7 @@ import TeamCard from "./TeamCard";
 const Team = () => {
     const [team, setTeam] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/team`)
+        fetch(`https://genius-car-server-sooty.vercel.app/team`)
         .then(res => res.json())
         .then(data => setTeam(data))
     }, [])

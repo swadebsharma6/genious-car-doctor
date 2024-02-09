@@ -7,7 +7,7 @@ const OrderRaw = ({order,}) => {
     const [orderService, setOrderService] = useState({});
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/services/${serviceId}`)
+        fetch(`https://genius-car-server-sooty.vercel.app/services/${serviceId}`)
         .then(res => res.json())
         .then(data => setOrderService(data) );
     }, [serviceId]);
@@ -16,7 +16,7 @@ const OrderRaw = ({order,}) => {
     const handleDelete = Id=>{
         const proceed = confirm('Are you sure, You want to delete?');
         if(proceed){
-            fetch(`http://localhost:5000/orders/${Id}`, {
+            fetch(`https://genius-car-server-sooty.vercel.app/orders/${Id}`, {
                 method: "DELETE"
             })
             .then(res => res.json())
